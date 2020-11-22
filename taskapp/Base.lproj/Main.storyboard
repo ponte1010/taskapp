@@ -78,14 +78,72 @@
                     <view key="view" contentMode="scaleToFill" id="G7n-NI-L8N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I3-nf-cZj">
+                                <rect key="frame" x="10" y="98" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beW-9W-HLV">
+                                <rect key="frame" x="10" y="129" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ca4-4p-RXa">
+                                <rect key="frame" x="10" y="204" width="394" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="YbP-Jp-wiz"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="luJ-6X-KNp">
+                                <rect key="frame" x="0.0" y="334" width="414" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="6Q7-83-GPJ"/>
+                                </constraints>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH7-wd-3O2">
+                                <rect key="frame" x="10" y="173" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ca4-4p-RXa" firstAttribute="leading" secondItem="hjw-KE-i8m" secondAttribute="leading" constant="10" id="0zy-y3-f8A"/>
+                            <constraint firstItem="beW-9W-HLV" firstAttribute="leading" secondItem="hjw-KE-i8m" secondAttribute="leading" constant="10" id="30N-Yf-Tbm"/>
+                            <constraint firstItem="6I3-nf-cZj" firstAttribute="leading" secondItem="hjw-KE-i8m" secondAttribute="leading" constant="10" id="339-nd-9qm"/>
+                            <constraint firstItem="6I3-nf-cZj" firstAttribute="top" secondItem="hjw-KE-i8m" secondAttribute="top" constant="10" id="IAp-Kv-1k4"/>
+                            <constraint firstItem="luJ-6X-KNp" firstAttribute="trailing" secondItem="hjw-KE-i8m" secondAttribute="trailing" id="KtD-Sa-BF7"/>
+                            <constraint firstItem="SH7-wd-3O2" firstAttribute="top" secondItem="beW-9W-HLV" secondAttribute="bottom" constant="10" id="Mel-Cn-7iJ"/>
+                            <constraint firstItem="hjw-KE-i8m" firstAttribute="trailing" secondItem="6I3-nf-cZj" secondAttribute="trailing" constant="10" id="c2P-zU-cCa"/>
+                            <constraint firstItem="hjw-KE-i8m" firstAttribute="trailing" secondItem="beW-9W-HLV" secondAttribute="trailing" constant="10" id="eGA-XY-be1"/>
+                            <constraint firstItem="hjw-KE-i8m" firstAttribute="trailing" secondItem="ca4-4p-RXa" secondAttribute="trailing" constant="10" id="fAk-3y-WFk"/>
+                            <constraint firstItem="luJ-6X-KNp" firstAttribute="leading" secondItem="hjw-KE-i8m" secondAttribute="leading" id="hhR-Al-dFr"/>
+                            <constraint firstItem="luJ-6X-KNp" firstAttribute="top" secondItem="ca4-4p-RXa" secondAttribute="bottom" constant="10" id="j1g-on-6mf"/>
+                            <constraint firstItem="hjw-KE-i8m" firstAttribute="trailing" secondItem="SH7-wd-3O2" secondAttribute="trailing" constant="10" id="oXI-Fb-Nap"/>
+                            <constraint firstItem="SH7-wd-3O2" firstAttribute="leading" secondItem="hjw-KE-i8m" secondAttribute="leading" constant="10" id="pmU-97-04M"/>
+                            <constraint firstItem="ca4-4p-RXa" firstAttribute="top" secondItem="SH7-wd-3O2" secondAttribute="bottom" constant="10" id="rUW-L0-gfE"/>
+                            <constraint firstItem="beW-9W-HLV" firstAttribute="top" secondItem="6I3-nf-cZj" secondAttribute="bottom" constant="10" id="zXB-iJ-GxN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hjw-KE-i8m"/>
                     </view>
                     <navigationItem key="navigationItem" id="fDA-V3-exV"/>
+                    <connections>
+                        <outlet property="contentsTextView" destination="ca4-4p-RXa" id="Vxh-Ut-Wg4"/>
+                        <outlet property="datePicker" destination="luJ-6X-KNp" id="i7F-9E-VKD"/>
+                        <outlet property="titleTextField" destination="beW-9W-HLV" id="yfN-lp-rsq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpQ-K6-m0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="130"/>
+            <point key="canvasLocation" x="1971.0144927536232" y="129.91071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nWl-Nl-cR2">
