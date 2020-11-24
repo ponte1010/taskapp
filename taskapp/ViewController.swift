@@ -89,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let result = realm.objects(Task.self).filter("category BEGINSWITH '\(searchText)'")
         let count = result.count
         if(count == 0){
-            taskArray = realm.objects(Task.self)
+            taskArray = result
         }else {
             taskArray = result
         }
