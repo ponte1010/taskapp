@@ -10,9 +10,10 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -26,6 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.enablesReturnKeyAutomatically = false
+        searchBar.enablesReturnKeyAutomatically = true
     }
     
     // segue で画面遷移する時に呼ばれる
@@ -77,6 +82,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // searchBarのメソッド
+    func searchBarSearchButtonClicked(_ searchBar:UISearchBar) {
+        searchBar.endEditing(true)
+        guard let searchText = searchBar.text else{return}
+        let result = realm.objects(Task.self).filter("category BEGINSWITH '\(searchText)'")
+        let count = result.count
+        if(count == 0){
+            taskArray = realm.objects(Task.self)
+        }else {
+            taskArray = result
+        }
+        tableView.reloadData()
+    }
+    
+    // searchBarのCanselボタンが押された時に呼ばれるメソッド
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        taskArray = realm.objects(Task.self) // 絞り込み前の状態に戻す
+        tableView.reloadData()
+    }
+    
     // 各セルを選択した時に実行されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "cellSegue", sender: nil)
@@ -87,7 +112,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return .delete
     }
     
-    // Delete ボタンが押された時に呼ばれるメソッド
+    // Deleteボタンが押された時に呼ばれるメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
