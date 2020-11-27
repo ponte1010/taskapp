@@ -84,15 +84,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // searchBarのメソッド
     func searchBarSearchButtonClicked(_ searchBar:UISearchBar) {
-        searchBar.endEditing(true)
-        guard let searchText = searchBar.text else{return}
-        let result = realm.objects(Task.self).filter("category BEGINSWITH '\(searchText)'")
-        let count = result.count
-        if(count == 0){
-            taskArray = result
-        }else {
-            taskArray = result
-        }
+        let predicate = NSPredicate(format: "category = %@", "\(searchBar.text!)")
+        taskArray = realm.objects(Task.self).filter(predicate)
         tableView.reloadData()
     }
     
